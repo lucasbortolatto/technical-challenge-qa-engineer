@@ -18,13 +18,13 @@ Uma lista de tarefas com integração de IA — o usuário descreve um objetivo 
 
 ### Stack
 
-| Camada | Tecnologia |
-|---|---|
-| Frontend | Next.js 14 (App Router) + TypeScript |
-| Backend | NestJS + TypeScript |
-| Banco de Dados | SQLite (via TypeORM) |
-| IA | OpenRouter (`mistralai/mistral-7b-instruct:free`) |
-| Infra | Docker Compose |
+| Camada         | Tecnologia                                        |
+| -------------- | ------------------------------------------------- |
+| Frontend       | Next.js 14 (App Router) + TypeScript              |
+| Backend        | NestJS + TypeScript                               |
+| Banco de Dados | SQLite (via TypeORM)                              |
+| IA             | OpenRouter (`mistralai/mistral-7b-instruct:free`) |
+| Infra          | Docker Compose                                    |
 
 ### Como rodar (pré-requisito: Docker instalado)
 
@@ -34,9 +34,9 @@ cd <nome-do-repositório>/app
 docker-compose up --build
 \`\`\`
 
-| Serviço | URL |
-|---|---|
-| Aplicação | http://localhost:3000 |
+| Serviço       | URL                            |
+| ------------- | ------------------------------ |
+| Aplicação     | http://localhost:3000          |
 | API (Swagger) | http://localhost:3001/api/docs |
 
 > A feature de IA usa o modelo \`mistralai/mistral-7b-instruct:free\` via OpenRouter, que é **gratuito**. Crie uma chave em https://openrouter.ai/keys e insira na interface da aplicação.
@@ -60,18 +60,22 @@ O arquivo \`PRD.md\` (na raiz deste repositório) é o documento de produto que 
 Crie o arquivo \`PRD-REVIEW.md\` na raiz do seu repositório. Para cada problema identificado no PRD, utilize o template abaixo:
 
 \`\`\`markdown
+
 ## [PRD-XXX] Título descritivo do problema
 
 **Requisito afetado:** RF-XX ou RNF
 **Categoria:** Ambiguidade | Requisito ausente | Critério de aceitação incompleto | Risco técnico | Segurança | Acessibilidade
 
 ### Problema identificado
+
 [Descreva o que está errado, incompleto ou ambíguo no PRD]
 
 ### Por que isso é um risco
+
 [Qual o impacto se isso for para produção sem ser tratado?]
 
 ### Sugestão de melhoria
+
 [Como você reescreveria ou complementaria esse requisito?]
 \`\`\`
 
@@ -92,6 +96,7 @@ Realize uma **sessão de testes exploratórios** cobrindo todas as funcionalidad
 Para cada defeito encontrado, use o template:
 
 \`\`\`markdown
+
 ## [BUG-XXX] Título descritivo e objetivo
 
 **Severidade:** Crítica | Alta | Média | Baixa
@@ -99,23 +104,29 @@ Para cada defeito encontrado, use o template:
 **Componente:** Frontend | Backend | API | UX | Acessibilidade | Segurança
 
 ### Descrição
+
 [O que acontece de errado e por que é um problema]
 
 ### Passos para Reproduzir
+
 1. ...
 2. ...
 3. ...
 
 ### Resultado Esperado
+
 [O que deveria acontecer]
 
 ### Resultado Obtido
+
 [O que realmente acontece]
 
 ### Evidência
+
 [Screenshot, vídeo, log de console ou resposta de API]
 
 ### Sugestão de Correção
+
 [Opcional, mas valorizado]
 \`\`\`
 
@@ -159,21 +170,21 @@ Construa uma suíte de testes automatizados E2E utilizando **Playwright + TypeSc
 
 \`\`\`
 e2e/
-  pages/
-    TaskListPage.ts
-    TaskFormPage.ts
-    AiGeneratorPage.ts
-  fixtures/
-    tasks.fixture.ts
-  tests/
-    task-creation.spec.ts
-    task-completion.spec.ts
-    task-deletion.spec.ts
-    empty-state.spec.ts
-    error-handling.spec.ts
-  playwright.config.ts
-  package.json
-  README.md
+pages/
+TaskListPage.ts
+TaskFormPage.ts
+AiGeneratorPage.ts
+fixtures/
+tasks.fixture.ts
+tests/
+task-creation.spec.ts
+task-completion.spec.ts
+task-deletion.spec.ts
+empty-state.spec.ts
+error-handling.spec.ts
+playwright.config.ts
+package.json
+README.md
 \`\`\`
 
 ### Comandos que o avaliador vai executar
@@ -192,17 +203,22 @@ npx playwright show-report
 Estes itens **não são obrigatórios**, mas serão fortemente valorizados:
 
 #### B1 — Testes de API
+
 Usando Playwright \`request\` context ou outro framework, implemente testes de contrato cobrindo:
+
 - Status codes corretos para cada operação
 - Schema de resposta (campos obrigatórios, tipos de dados)
 - Casos de borda (payload inválido, ID inexistente, campo ausente)
 
 #### B2 — CI com GitHub Actions
+
 Configure \`.github/workflows/e2e.yml\` que:
+
 - Execute a suíte E2E em pull requests
 - Publique o relatório HTML do Playwright como artefato do workflow
 
 #### B3 — Acessibilidade
+
 Usando \`@axe-core/playwright\` ou equivalente, documente pelo menos 3 problemas de acessibilidade encontrados na aplicação.
 
 ---
@@ -211,30 +227,30 @@ Usando \`@axe-core/playwright\` ou equivalente, documente pelo menos 3 problemas
 
 ### Fase 1 — Revisão de PRD (25%)
 
-| Critério | Peso |
-|---|---|
-| Cobertura de problemas identificados (quantidade e variedade de categorias) | 40% |
-| Qualidade da análise (risco justificado, não apenas "falta detalhes") | 35% |
-| Qualidade das sugestões de melhoria | 25% |
+| Critério                                                                    | Peso |
+| --------------------------------------------------------------------------- | ---- |
+| Cobertura de problemas identificados (quantidade e variedade de categorias) | 40%  |
+| Qualidade da análise (risco justificado, não apenas "falta detalhes")       | 35%  |
+| Qualidade das sugestões de melhoria                                         | 25%  |
 
 ### Fase 2 — Auditoria da Aplicação (30%)
 
-| Critério | Peso |
-|---|---|
-| Cobertura de defeitos encontrados | 35% |
-| Qualidade dos bug reports (clareza, reprodutibilidade, evidências) | 30% |
-| Classificação adequada de severidade e prioridade | 15% |
-| Profundidade estratégica no TEST-STRATEGY.md | 20% |
+| Critério                                                           | Peso |
+| ------------------------------------------------------------------ | ---- |
+| Cobertura de defeitos encontrados                                  | 35%  |
+| Qualidade dos bug reports (clareza, reprodutibilidade, evidências) | 30%  |
+| Classificação adequada de severidade e prioridade                  | 15%  |
+| Profundidade estratégica no TEST-STRATEGY.md                       | 20%  |
 
 ### Fase 3 — Suíte Playwright (45%)
 
-| Critério | Peso |
-|---|---|
-| Cobertura dos fluxos críticos obrigatórios | 30% |
-| Arquitetura (POM, fixtures, organização de pastas) | 25% |
-| Qualidade e estabilidade dos selectors | 20% |
-| Código limpo, tipado e idiomático em TypeScript | 15% |
-| Documentação e facilidade de execução | 10% |
+| Critério                                           | Peso |
+| -------------------------------------------------- | ---- |
+| Cobertura dos fluxos críticos obrigatórios         | 30%  |
+| Arquitetura (POM, fixtures, organização de pastas) | 25%  |
+| Qualidade e estabilidade dos selectors             | 20%  |
+| Código limpo, tipado e idiomático em TypeScript    | 15%  |
+| Documentação e facilidade de execução              | 10%  |
 
 ---
 
@@ -242,19 +258,19 @@ Usando \`@axe-core/playwright\` ou equivalente, documente pelo menos 3 problemas
 
 \`\`\`
 repositório/
-  app/                        ← aplicação (não modificar)
-  e2e/                        ← Fase 3: suíte Playwright
-    pages/
-    fixtures/
-    tests/
-    playwright.config.ts
-    package.json
-    README.md
-  PRD.md                      ← fornecido (não modificar)
-  PRD-REVIEW.md               ← Fase 1: sua entrega
-  BUG-REPORT.md               ← Fase 2: sua entrega
-  TEST-STRATEGY.md            ← Fase 2: sua entrega
-  README.md                   ← como rodar a app e os testes
+app/ ← aplicação (não modificar)
+e2e/ ← Fase 3: suíte Playwright
+pages/
+fixtures/
+tests/
+playwright.config.ts
+package.json
+README.md
+PRD.md ← fornecido (não modificar)
+PRD-REVIEW.md ← Fase 1: sua entrega
+BUG-REPORT.md ← Fase 2: sua entrega
+TEST-STRATEGY.md ← Fase 2: sua entrega
+README.md ← como rodar a app e os testes
 \`\`\`
 
 ---
