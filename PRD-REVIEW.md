@@ -3,12 +3,14 @@
 
 Este documento reúne os problemas identificados na análise do PRD v1.2 do produto Smart To-D. Os itens foram organizados por requisito funcional e cobrem ambiguidades, requisitos ausentes, critérios de aceitação incompletos, riscos técnicos e de segurança identificados nas lacunas do documento.
 
-Autor: Luidson Lucas Bortolatto
-Data da elaboração: 25 abr 2026
+**Autor:** Luidson Lucas Bortolatto
+
+**Data da elaboração:** 25 abr 2026
 
 ## [PRD-001] Ausência de requisitos sobre paginação
 
 **Requisito afetado:** RF-01
+
 **Categoria:** Requisito ausente
 
 **Problema identificado**
@@ -28,6 +30,7 @@ Adicionaria o requisito de paginação (seja no front ou no backend) e a quantid
 ## [PRD-002] Ausência de detalhes sobre o que seria o elemento visual de diferenciação
 
 **Requisito afetado:** RF-01
+
 **Categoria:** Requisito ausente
 
 **Problema identificado**
@@ -47,6 +50,7 @@ Adicionaria o requisito informando qual seria a diferenciação visual (um ícon
 ## [PRD-003] Ausência de clareza sobre o que seria "Quando aplicável"
 
 **Requisito afetado:** RF-01
+
 **Categoria:** Ambiguidade
 
 **Problema identificado**
@@ -66,6 +70,7 @@ Alteraria esse requisito indicando para ser mostrada Sim ou não ou uma tag "IA"
 ## [PRD-004] Ausência de comportamento para lista vazia
 
 **Requisito afetado:** RF-01
+
 **Categoria:** Critério de aceitação incompleto
 
 **Problema identificado**
@@ -85,6 +90,7 @@ Adicionar um requisito quando não há tarefas: Uma mensagem como "Não há tare
 ## [PRD-005] Faltam requisitos no campo de título de tarefa
 
 **Requisito afetado:** RF-02
+
 **Categoria:** Requisito ausente
 
 **Problema identificado**
@@ -104,6 +110,7 @@ Definir tamanho mínimo e máximo do campo, caracteres aceitos e obrigatoriedade
 ## [PRD-006] Ausência de uma descrição da tarefa
 
 **Requisito afetado:** RF-02
+
 **Categoria:** Requisito ausente
 
 **Problema identificado**
@@ -123,6 +130,7 @@ Ter 2 campos: O Título e a descrição. Título com menos caracteres e descriç
 ## [PRD-007] Detalhamento do fluxo após a adição da tarefa
 
 **Requisito afetado:** RF-02
+
 **Categoria:** Requisito ausente
 
 **Problema identificado**
@@ -142,6 +150,7 @@ Adicionar uma mensagem de confirmação que a tarefa foi criada, e uma pergunta:
 ## [PRD-008] Adição múltipla de tarefas
 
 **Requisito afetado:** RF-02
+
 **Categoria:** Requisito ausente
 
 **Problema identificado**
@@ -161,6 +170,7 @@ Ter a opção de adição múltipla parecido com o app TODO Ist. Quando adiciona
 ## [PRD-009] Não há comportamento mapeado caso houver algum erro na criação da tarefa
 
 **Requisito afetado:** RF-02
+
 **Categoria:** Critério de aceitação incompleto
 
 **Problema identificado**
@@ -180,6 +190,7 @@ Adicionar o requisito de que caso ocorra algum erro, ter o feedback pro usuário
 ## [PRD-010] Ausência de requisito indicando um loading na tela durante o salvamento
 
 **Requisito afetado:** RF-02
+
 **Categoria:** Critério de aceitação incompleto
 
 **Problema identificado**
@@ -199,6 +210,7 @@ Adicionar o requisito de um loading ou mensagem durante o processo de salvar no 
 ## [PRD-011] Não há requisitos para desfazer conclusão acidental de tarefas
 
 **Requisito afetado:** RF-03
+
 **Categoria:** Requisito ausente
 
 **Problema identificado**
@@ -218,6 +230,7 @@ Adicionar um requisito simples de: Ao clicar no checkbox, tarefa concluída, ao 
 ## [PRD-012] Ausência de definição do feedback visual ao concluir tarefa
 
 **Requisito afetado:** RF-03
+
 **Categoria:** Ambiguidade
 
 **Problema identificado**
@@ -237,6 +250,7 @@ Definir o elemento visual utilizado para indicar conclusão, por exemplo: Um tí
 ## [PRD-013] Ausência de comportamento em caso de falha na persistência do estado
 
 **Requisito afetado:** RF-03
+
 **Categoria:** Critério de aceitação incompleto
 
 **Problema identificado**
@@ -256,6 +270,7 @@ Adicionar critério de aceite para o caso de falha. Exemplo: Reverter a alteraç
 ## [PRD-014] Ausência de confirmação antes da exclusão da tarefa
 
 **Requisito afetado:** RF-04
+
 **Categoria:** Ambiguidade
 
 **Problema identificado**
@@ -275,6 +290,7 @@ Definir no requisito uma etapa de confirmação antes da exclusão. Por exemplo:
 ## [PRD-015] Ausência de feedback visual após a exclusão da tarefa
 
 **Requisito afetado:** RF-04
+
 **Categoria:** Critério de aceitação incompleto
 
 **Problema identificado**
@@ -294,6 +310,7 @@ Adicionar um requisito de feedback após a exclusão, como uma mensagem temporá
 ## [PRD-016] Ausência de comportamento em caso de erro na exclusão
 
 **Requisito afetado:** RF-04
+
 **Categoria:** Critério de aceitação incompleto
 
 **Problema identificado**
@@ -313,6 +330,7 @@ Adicionar critério de aceite para o caso de falha. Exemplo: Manter a tarefa na 
 ## [PRD-017] Ausência de etapa de revisão antes de salvar as tarefas geradas pela IA
 
 **Requisito afetado:** RF-05
+
 **Categoria:** Requisito ausente
 
 **Problema identificado**
@@ -332,6 +350,7 @@ Adicionar uma etapa de preview antes de salvar: exibir as tarefas geradas com a 
 ## [PRD-018] Ausência de comportamento em caso de erro na comunicação com a IA
 
 **Requisito afetado:** RF-05
+
 **Categoria:** Critério de aceitação incompleto
 
 **Problema identificado**
@@ -351,6 +370,7 @@ Adicionar critério de aceite para falha: encerrar o loading e exibir uma mensag
 ## [PRD-019] Falta de clareza sobre como as tarefas geradas pela IA são adicionadas à lista
 
 **Requisito afetado:** RF-05
+
 **Categoria:** Ambiguidade
 
 **Problema identificado**
@@ -370,6 +390,7 @@ Definir onde as tarefas geradas por IA aparecem na lista após a geração. Por 
 ## [PRD-020] Ausência de validação da resposta da IA antes de salvar
 
 **Requisito afetado:** RF-05
+
 **Categoria:** Risco técnico
 
 **Problema identificado**
@@ -389,6 +410,7 @@ Definir um critério mínimo de validação da resposta da IA antes de salvar. E
 ## [PRD-021] Ausência de limite de caracteres no campo de objetivo
 
 **Requisito afetado:** RF-05
+
 **Categoria:** Requisito ausente
 
 **Problema identificado**
@@ -408,6 +430,7 @@ Definir um limite máximo de caracteres no campo, por exemplo 500 ou 1000 caract
 ## [PRD-022] Ausência de comportamento quando a IA retorna zero tarefas
 
 **Requisito afetado:** RF-05
+
 **Categoria:** Critério de aceitação incompleto
 
 **Problema identificado**
@@ -427,6 +450,7 @@ Adicionar critério de aceitação para resultado vazio. Exemplo: Exibir uma men
 ## [PRD-023] Ausência de validação da API Key inserida
 
 **Requisito afetado:** RF-06
+
 **Categoria:** Critério de aceitação incompleto
 
 **Problema identificado**
@@ -446,6 +470,7 @@ Adicionar um critério de aceite de validação da chave antes de liberar a func
 ## [PRD-024] Ausência de mascaramento do campo de API Key
 
 **Requisito afetado:** RF-06
+
 **Categoria:** Segurança
 
 **Problema identificado**
@@ -465,6 +490,7 @@ Definir que o campo de API Key deve mascarar os caracteres após a inserção, c
 ## [PRD-025] Ausência de requisitos sobre armazenamento e criptografia da API Key
 
 **Requisito afetado:** RF-06
+
 **Categoria:** Segurança
 
 **Problema identificado**
@@ -484,6 +510,7 @@ Adicionar requisito de segurança definindo que a API Key deve ser armazenada de
 ## [PRD-026] Ausência de definição sobre persistência da API Key entre sessões
 
 **Requisito afetado:** RF-06
+
 **Categoria:** Requisito ausente
 
 **Problema identificado**
@@ -503,6 +530,7 @@ Definir se a chave persiste entre sessões e por quanto tempo. Por exemplo: a ch
 ## [PRD-027] Ausência de feedback quando a API Key não está configurada
 
 **Requisito afetado:** RF-06
+
 **Categoria:** Critério de aceitação incompleto
 
 **Problema identificado**
@@ -522,6 +550,7 @@ Adicionar critério de aceitação para quando a chave não esta configurada. Ex
 ## [PRD-028] Ausência de definição do que seria "utilizável" no requisito de responsividade
 
 **Requisito afetado:** RNF
+
 **Categoria:** Ambiguidade
 
 **Problema identificado**
@@ -541,6 +570,7 @@ Substituir "utilizável" por critérios mais objetivos. Exemplo: Todos os elemen
 ## [PRD-029] Ausência de critérios de medição e processo para a disponibilidade de 99%
 
 **Requisito afetado:** RNF
+
 **Categoria:** Ambiguidade
 
 **Problema identificado**
@@ -560,6 +590,7 @@ Definir a ferramenta de monitoramento, o período de medição (mensal, anual), 
 ## [PRD-030] Compatibilidade com "duas últimas versões" pode ser algo perigoso
 
 **Requisito afetado:** RNF
+
 **Categoria:** Risco técnico
 
 **Problema identificado**
@@ -579,6 +610,7 @@ Adicionar um processo para acompanhar lançamentos de novas versões dos navegad
 ## [PRD-031] Ausência de requisitos de performance
 
 **Requisito afetado:** RNF
+
 **Categoria:** Requisito ausente
 
 **Problema identificado**
@@ -598,6 +630,7 @@ Adicionar requisitos mínimos de performance. Exemplo: Listagem de tarefas deve 
 ## [PRD-032] Ausência de requisitos de segurança
 
 **Requisito afetado:** RNF
+
 **Categoria:** Segurança
 
 **Problema identificado**
