@@ -1,5 +1,7 @@
 # Env com credenciais reais
 app/.env
+.env
+e2e/.env
 
 # Node
 node_modules/
@@ -11,3 +13,12 @@ node_modules/
 # SQLite data
 *.db
 *.sqlite
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Playwright
+playwright-report/
+test-results/
+**/.last-run.json

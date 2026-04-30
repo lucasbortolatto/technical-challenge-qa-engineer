@@ -147,8 +147,9 @@ Cada endpoint deve ser testado verificando: status code esperado, formato do pay
 
 | Endpoint | Casos críticos |
 |----------|---------------|
-| `POST /tasks` | Criação válida, título vazio, título longo |
+| `POST /tasks` | Criação válida, título vazio |
 | `GET /tasks` | Lista com itens, lista vazia |
+| `PATCH /tasks/:id` | Toggle `isCompleted` para true, toggle para false |
 | `DELETE /tasks/:id` | Exclusão válida, ID inexistente |
 | `POST /ai/generate` | Com Key válida, sem Key, Key inválida |
 
@@ -193,8 +194,17 @@ Antes de iniciar a execução dos testes, os seguintes pré-requisitos devem est
 
 - Containers Docker (frontend e backend) em execução e respondendo
 - Banco de dados SQLite inicializado e acessível
-- API Key do OpenRouter disponível para os testes que dependem de IA
 - Estado do banco limpo antes de cada execução da suite
+
+**Configuração da API Key para testes com integração real de IA:**
+
+Alguns testes (E2E-0012, E2E-0014, API-0008) realizam chamadas reais ao OpenRouter e são ignorados automaticamente quando a chave não está configurada. Para executá-los:
+
+1. Acesse o diretório `e2e/` e copie `.env.example` para `.env`: `cp .env.example .env`
+2. Preencha `OPENROUTER_API_KEY` com uma chave válida do OpenRouter
+3. Execute a suite normalmente — os testes ignorados serão incluídos automaticamente
+
+Sem a chave configurada, a suite executa sem erros e esses testes aparecem como `skipped` no relatório. Testes de estados de erro (chave inválida, sem chave, loading indicator) não dependem de chave válida e sempre executam.
 
 **Estratégia de reset de dados:** antes de cada teste E2E, todas as tarefas existentes serão removidas via chamada ao endpoint `DELETE /tasks/:id` para cada item retornado por `GET /tasks`. Essa abordagem usa a própria API da aplicação, garantindo que o comportamento de limpeza também seja validado indiretamente. A limpeza é implementada nos fixtures do Playwright como `beforeEach`, assegurando que cada teste comece com um estado previsível e independente dos demais.
 
