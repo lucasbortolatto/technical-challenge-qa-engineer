@@ -1,11 +1,12 @@
 import { defineConfig, devices } from '@playwright/test';
 import dotenv from 'dotenv';
+import path from 'path';
 
-// Carrega variáveis de ambiente do arquivo .env na raiz do projeto (se existir)
-dotenv.config();
+// Carrega variáveis de ambiente do arquivo .env no mesmo diretório deste config
+dotenv.config({ path: path.join(__dirname, '.env') });
 
 export default defineConfig({
-  testDir: './e2e',
+  testDir: '.',
   fullyParallel: false,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,

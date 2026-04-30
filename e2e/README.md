@@ -68,18 +68,23 @@ Sem a chave, a suite executa sem erros e esses testes aparecem como `skipped` no
 ```
 e2e/
 ├── fixtures/
-│   └── index.ts          # Setup, teardown e utilitário clearAllTasks()
+│   └── index.ts              # Setup, teardown e utilitário clearAllTasks()
 ├── pages/
-│   ├── TaskPage.ts        # Page Object — lista e formulário de tarefas
-│   └── AiGeneratorPage.ts # Page Object — geração de tarefas via IA
+│   ├── TaskPage.ts            # Page Object — lista e formulário de tarefas
+│   └── AiGeneratorPage.ts     # Page Object — geração de tarefas via IA
 ├── tests/
-│   ├── tasks.spec.ts      # Fluxos CRUD de tarefas
-│   ├── ai-generation.spec.ts # Fluxos de geração via IA
+│   ├── tasks.spec.ts          # Fluxos CRUD de tarefas
+│   ├── ai-generation.spec.ts  # Fluxos de geração via IA
 │   └── api/
 │       ├── tasks-api.spec.ts  # Contratos REST /tasks
 │       └── ai-api.spec.ts     # Contratos REST /ai/generate
+├── .env.example               # Template com as variáveis necessárias
+├── package.json               # Dependências e scripts npm da suite
+├── playwright.config.ts       # Configuração do Playwright (projetos, browser, base URL)
 └── README.md
 ```
+
+> **Nota:** o arquivo `.env` não é versionado (ver `.gitignore`). Crie-o localmente a partir do `.env.example` quando precisar rodar os testes que chamam a IA de verdade.
 
 ## Sobre testes que documentam bugs
 
