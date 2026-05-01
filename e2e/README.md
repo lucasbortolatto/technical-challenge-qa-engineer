@@ -56,12 +56,9 @@ Os testes E2E-0012, E2E-0014 e API-0008 realizam chamadas reais ao OpenRouter e 
 
 Sem a chave, a suite executa sem erros e esses testes aparecem como `skipped` no relatório. Os demais testes de IA (estados de erro, loading indicator) não dependem de chave válida e sempre executam.
 
-> **⚠️ Pendente:** ainda não foi definida a estratégia oficial para execução desses testes em ambientes compartilhados ou pipelines de CI/CD. Questões em aberto:
-> - Como disponibilizar a chave de forma segura em CI (secrets, vault, variável de ambiente protegida)?
-> - Os testes de integração real devem rodar em todo PR ou apenas em pipelines agendados?
-> - Deve-se usar uma chave dedicada para testes (com limite de uso controlado) separada da chave de produção?
->
-> Enquanto não houver definição, esses testes rodam apenas localmente mediante configuração manual do `.env`.
+> ** Rate limiting:** o modelo gratuito do OpenRouter pode retornar erro 500 quando a suite é executada várias vezes seguidas. Se isso ocorrer, aguarde alguns minutos antes de rodar novamente ou esvazie a chave no `.env` para pular os testes de integração real.
+
+A estratégia para execução desses testes em CI/CD está documentada no `TEST-STRATEGY.md` (seção 6.4).
 
 ## Estrutura
 

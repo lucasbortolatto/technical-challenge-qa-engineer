@@ -225,6 +225,14 @@ Sem a chave configurada, a suite executa sem erros e esses testes aparecem como 
 
 Recomenda-se executar a suite E2E a cada Pull Request que afete as camadas de serviço, API ou componentes de UI críticos. Testes unitários e de integração devem rodar em todo commit.
 
+Os testes que dependem de API Key real (E2E-0012, E2E-0014, API-0008) ainda não têm estratégia definida para execução em CI/CD. Questões em aberto a serem decididas com o time:
+
+- Como disponibilizar a chave de forma segura em CI (secrets, vault, variável de ambiente protegida)?
+- Os testes de integração real devem rodar em todo PR ou apenas em pipelines agendados?
+- Deve-se usar uma chave dedicada para testes (com limite de uso controlado) separada da chave de produção?
+
+Enquanto não houver definição, esses testes rodam apenas localmente mediante configuração manual do `.env`.
+
 ---
 
 ## 7. Ferramentas e Stack de Testes
