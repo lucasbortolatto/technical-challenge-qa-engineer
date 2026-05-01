@@ -29,7 +29,7 @@ A tarefa volta ao estado "não concluída" após o reload. Nenhuma requisição 
 
 **Evidência**
 
-- [Vídeo](./evidencias-teste/BUG_001_Marcar_tarefa_como_concluida_nao_persiste)
+- [Vídeo](./evidencias-testes/BUG_001_Marcar_tarefa_como_concluida_nao_persiste.mov)
 
 
 **Sugestão de Correção**
@@ -64,7 +64,7 @@ Nenhuma ação ocorre na interface. Sem mensagem de erro, sem feedback visual, s
 
 **Evidência**
 
-- [Vídeo](./evidencias-teste/BUG_002_Submissão_de_formulário_de_criação_de_tarefa_com_campo_vazio)
+- [Vídeo](./evidencias-testes/BUG_002_Submiss%C3%A3o_de_formul%C3%A1rio_de_cria%C3%A7%C3%A3o_de_tarefa_com_campo_vazio.mov)
 
 **Sugestão de Correção**
 
@@ -98,7 +98,7 @@ O texto é aceito e salvo no banco sem nenhuma validação de tamanho
 
 **Evidência**
 
-- [Arquivo de Exemplo](./evidencias-teste/BUG_003_exemplo_de_arquivo_102300_caracteres.txt)
+- [Arquivo de Exemplo](./evidencias-testes/BUG_003_exemplo_de_arquivo_102300_caracteres.txt)
 
 **Sugestão de Correção**
 
@@ -133,7 +133,7 @@ Nenhum feedback é exibido na interface. O backend retorna Bad Request mas o err
 
 **Evidência**
 
-- ![Imagem](./evidencias-teste/BUG_004_Tentativa_de_gerar_tarefas_sem_API_Key_nao_exibe_feedback.jpg)
+- ![Imagem](./evidencias-testes/BUG_004_Tentativa_de_gerar_tarefas_sem_API_Key_nao_exibe_feedback.jpg)
 
 
 **Sugestão de Correção**
@@ -169,7 +169,7 @@ Nenhum feedback é exibido na interface deixando o usuário sem entender o motiv
 
 **Evidência**
 
-- ![Imagem](./evidencias-teste/BUG_005_Insercao_de_API_Key_invalida_nao_retorna_erro_na_interface.jpg)
+- ![Imagem](./evidencias-testes/BUG_005_Insercao_de_API_Key_invalida_nao_retorna_erro_na_interface.jpg)
 
 - Retorno do backend:
     ````
@@ -223,7 +223,7 @@ A API retorna status 201 (Created) e a tarefa é salva no banco com título vazi
 
 **Evidência**
 
-- ![Imagem](./evidencias-teste/BUG_006_API_aceita_criacao_de_tarefa_com_titulo_vazio.jpg)
+- ![Imagem](./evidencias-testes/BUG_006_API_aceita_criacao_de_tarefa_com_titulo_vazio.jpg)
 
 **Sugestão de Correção**
 
@@ -258,7 +258,7 @@ A API retorna resposta de sucesso mesmo sem encontrar nenhum registro correspond
 
 **Evidência**
 
-- ![Imagem](./evidencias-teste/BUG_007_DELETE_com_ID_inexistente_retorna_sucesso.jpg)
+- ![Imagem](./evidencias-testes/BUG_007_DELETE_com_ID_inexistente_retorna_sucesso.jpg)
 
 **Sugestão de Correção**
 
@@ -293,7 +293,7 @@ A API retorna status 500 (Internal Server Error) ao invés de tratar o erro que 
 
 **Evidência**
 
-- ![Imagem](./evidencias-teste/BUG_008_Endpoint_geracao_IA_retorna_500_ao_inves_de_401.jpg)
+- ![Imagem](./evidencias-testes/BUG_008_Endpoint_geracao_IA_retorna_500_ao_inves_de_401.jpg)
 
 - Log do backend:
     ```
