@@ -1,9 +1,7 @@
 import { defineConfig, devices } from '@playwright/test';
 import dotenv from 'dotenv';
-import path from 'path';
 
-// Carrega variáveis de ambiente do arquivo .env no mesmo diretório deste config
-dotenv.config({ path: path.join(__dirname, '.env') });
+dotenv.config();
 
 export default defineConfig({
   testDir: '.',

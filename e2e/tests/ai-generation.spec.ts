@@ -16,11 +16,17 @@ test.describe('Geração de Tarefas via IA', () => {
     const countBefore = await taskPage.getTaskCount();
 
     await aiPage.generateWithKey(apiKey!, 'Criar um blog pessoal');
-    await aiPage.waitForGeneration();
-    await taskPage.page.waitForTimeout(1000);
+    const response = await aiPage.waitForGeneration();
+    expect(response.status()).toBe(201); // falha rápido se o OpenRouter retornar erro
+
+    // Aguarda a renderização das tarefas na lista (evita waitForTimeout fixo)
+    await taskPage.page.waitForFunction(
+      (before) => document.querySelectorAll('[data-testid="task-item"]').length > before,
+      countBefore,
+      { timeout: 10000 }
+    );
 
     const countAfter = await taskPage.getTaskCount();
-    expect(countAfter).toBeGreaterThan(countBefore);
     expect(countAfter - countBefore).toBeGreaterThanOrEqual(2); // IA deve gerar ao menos 2 subtarefas
   });
 
@@ -54,8 +60,15 @@ test.describe('Geração de Tarefas via IA', () => {
     const countComManual = await taskPage.getTaskCount(); // = 1
 
     await aiPage.generateWithKey(apiKey!, 'Criar um blog pessoal');
-    await aiPage.waitForGeneration();
-    await taskPage.page.waitForTimeout(1000);
+    const response = await aiPage.waitForGeneration();
+    expect(response.status()).toBe(201); // falha rápido se o OpenRouter retornar erro
+
+    // Aguarda a renderização das tarefas na lista (evita waitForTimeout fixo)
+    await taskPage.page.waitForFunction(
+      (before) => document.querySelectorAll('[data-testid="task-item"]').length > before,
+      countComManual,
+      { timeout: 10000 }
+    );
 
     const totalTasks = await taskPage.getTaskCount();
     expect(totalTasks).toBeGreaterThan(countComManual);
@@ -72,6 +85,7 @@ test.describe('Geração de Tarefas via IA', () => {
     const countBefore = await taskPage.getTaskCount();
 
     await aiPage.generateButton.click();
+    // Validação negativa: campo vazio não dispara requisição, não há condição para esperar
     await taskPage.page.waitForTimeout(1000);
 
     const countAfter = await taskPage.getTaskCount();

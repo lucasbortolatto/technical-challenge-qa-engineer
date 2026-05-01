@@ -127,8 +127,9 @@ test.describe('Gerenciamento de Tarefas', () => {
     const countBefore = await taskPage.getTaskCount();
 
     await taskPage.titleInput.fill('Tarefa que vai falhar');
+    const responsePromise = taskPage.page.waitForResponse('**/tasks');
     await taskPage.submitButton.click();
-    await taskPage.page.waitForTimeout(500);
+    await responsePromise; // aguarda o 500 mockado — evita waitForTimeout fixo
 
     const countAfter = await taskPage.getTaskCount();
     expect(countAfter).toBe(countBefore);

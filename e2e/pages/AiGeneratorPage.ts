@@ -35,7 +35,7 @@ export class AiGeneratorPage {
   }
 
   async waitForGeneration() {
-    await this.page.waitForResponse(
+    return this.page.waitForResponse(
       (res) => res.url().includes('/ai/generate') && res.request().method() === 'POST',
       { timeout: 30000 }
     );

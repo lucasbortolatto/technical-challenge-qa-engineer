@@ -179,6 +179,7 @@ Priorizar os fluxos que o usuário final percorre com mais frequência e os que 
 |------|-------|--------------|---------|-----------|
 | Persistência | Operações sem commit real no banco | Alta | Crítico | P1 |
 | IA / API Key | Erros silenciosos sem feedback ao usuário | Alta | Alto | P1 |
+| Testes de IA | OpenRouter free tier retorna 500 por rate limiting, causando falhas intermitentes nos testes E2E-0012, E2E-0014 e API-0008 | Alta | Médio | P2 |
 | Validação de entrada | Backend aceita dados inválidos | Alta | Alto | P2 |
 | API REST | Contratos inconsistentes com a documentação | Média | Médio | P2 |
 | Diferenciação visual | Tarefas sem marcação correta após reload | Média | Médio | P3 |
