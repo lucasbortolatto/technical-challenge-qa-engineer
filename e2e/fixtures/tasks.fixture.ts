@@ -1,19 +1,26 @@
 import { test as base, request } from '@playwright/test';
-import { TaskPage } from '../pages/TaskPage';
+import { TaskListPage } from '../pages/TaskListPage';
+import { TaskFormPage } from '../pages/TaskFormPage';
 import { AiGeneratorPage } from '../pages/AiGeneratorPage';
 
 const API_BASE = 'http://localhost:3001';
 
 type Fixtures = {
-  taskPage: TaskPage;
+  taskListPage: TaskListPage;
+  taskFormPage: TaskFormPage;
   aiPage: AiGeneratorPage;
 };
 
 export const test = base.extend<Fixtures>({
-  taskPage: async ({ page }, use) => {
-    const taskPage = new TaskPage(page);
-    await taskPage.goto();
-    await use(taskPage);
+  taskListPage: async ({ page }, use) => {
+    const taskListPage = new TaskListPage(page);
+    await taskListPage.goto();
+    await use(taskListPage);
+  },
+
+  taskFormPage: async ({ taskListPage }, use) => {
+    const taskFormPage = new TaskFormPage(taskListPage.page);
+    await use(taskFormPage);
   },
 
   aiPage: async ({ page }, use) => {

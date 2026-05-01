@@ -1,22 +1,13 @@
 import { Page, Locator, expect } from '@playwright/test';
 
-export class TaskPage {
+export class TaskListPage {
   readonly page: Page;
 
-  // Task form
-  readonly titleInput: Locator;
-  readonly submitButton: Locator;
-  readonly taskForm: Locator;
-
-  // Task list
   readonly taskList: Locator;
   readonly loadingIndicator: Locator;
 
   constructor(page: Page) {
     this.page = page;
-    this.titleInput = page.getByTestId('task-title-input');
-    this.submitButton = page.getByTestId('task-submit-button');
-    this.taskForm = page.getByTestId('task-form');
     this.taskList = page.getByTestId('task-list');
     this.loadingIndicator = page.getByTestId('tasks-loading');
   }
@@ -26,14 +17,9 @@ export class TaskPage {
     await this.page.waitForLoadState('networkidle');
   }
 
-  async createTask(title: string) {
-    await this.titleInput.fill(title);
-    // Registra o listener antes do click para não perder respostas rápidas
-    const responsePromise = this.page.waitForResponse((res) =>
-      res.url().includes('/tasks') && res.request().method() === 'POST'
-    );
-    await this.submitButton.click();
-    await responsePromise;
+  async reload() {
+    await this.page.reload();
+    await this.page.waitForLoadState('networkidle');
   }
 
   async getTaskByTitle(title: string): Promise<Locator> {
@@ -74,10 +60,5 @@ export class TaskPage {
 
   async getTaskCount(): Promise<number> {
     return this.page.getByTestId('task-item').count();
-  }
-
-  async reload() {
-    await this.page.reload();
-    await this.page.waitForLoadState('networkidle');
   }
 }

@@ -65,12 +65,17 @@ A estratégia para execução desses testes em CI/CD está documentada no `TEST-
 ```
 e2e/
 ├── fixtures/
-│   └── index.ts              # Setup, teardown e utilitário clearAllTasks()
+│   └── tasks.fixture.ts       # Setup, teardown e utilitário clearAllTasks()
 ├── pages/
-│   ├── TaskPage.ts            # Page Object — lista e formulário de tarefas
+│   ├── TaskListPage.ts        # Page Object — lista de tarefas
+│   ├── TaskFormPage.ts        # Page Object — formulário de criação
 │   └── AiGeneratorPage.ts     # Page Object — geração de tarefas via IA
 ├── tests/
-│   ├── tasks.spec.ts          # Fluxos CRUD de tarefas
+│   ├── task-creation.spec.ts  # Fluxos de criação de tarefas
+│   ├── task-completion.spec.ts # Fluxos de conclusão e toggle
+│   ├── task-deletion.spec.ts  # Fluxos de exclusão
+│   ├── empty-state.spec.ts    # Comportamento com lista vazia
+│   ├── error-handling.spec.ts # Tratamento de erros de API
 │   ├── ai-generation.spec.ts  # Fluxos de geração via IA
 │   └── api/
 │       ├── tasks-api.spec.ts  # Contratos REST /tasks
